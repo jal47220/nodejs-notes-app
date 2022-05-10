@@ -1,4 +1,6 @@
 {
+  "name": "nodejs-notes-app",
+  "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "dev": "ts-node-dev --respawn src/app.ts",
