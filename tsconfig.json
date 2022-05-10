@@ -6,6 +6,7 @@
         "sourceMap": true,
         "outDir": "./dist",
         "noEmitOnError": true,
+        "esModuleInterop": true,
         "forceConsistentCasingInFileNames": true,
         "strict": true,
         "noImplicitAny": true,
