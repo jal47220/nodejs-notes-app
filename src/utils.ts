@@ -1,3 +1,5 @@
-const name = 'Josh'
+export const name = 'Josh'
 
-export = name
+export const add = function (a: number, b: number) {
+    return a + b;
+}

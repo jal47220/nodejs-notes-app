@@ -1,3 +1,4 @@
-import * as name from './utils'
+import * as utils from './utils'
 
-console.log(name)
+console.log(utils.name);
+console.log(utils.add(1, 2));
