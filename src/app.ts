@@ -1,43 +1,40 @@
-import yargs, { demandOption } from 'yargs'
+import * as yargs from 'yargs'
+import * as notes from './notes'
 
-// Add command
 yargs.command({
     command: 'add',
     describe: 'Add new note',
     builder: {
-        title: { 
+        title: {
             describe: 'Note title',
-            demandOption: true
-         }
+            demandOption: true,
+            type: 'string'
+        },
+        body: {
+            describe: 'Note body',
+            demandOption: true,
+            type: 'string'
+        }
     },
-    handler: function (argv) {
-        console.log('Adding note', argv);
+    handler: function (argv: any) {
+        notes.addNote(argv.title, argv.body)
     }
-})
-
-// List command
-yargs.command({
+}).command({
     command: 'list',
     describe: 'List notes',
     handler: function () {
         console.log('Listing notes');
     }
-})
-
-// Read command
-yargs.command({
+}).command({
     command: 'read',
     describe: 'Read a note',
     handler: function () {
         console.log('Reading note');
     }
-})
-
-// Remove command
-yargs.command({
+}).command({
     command: 'remove',
     describe: 'Remove a note',
     handler: function () {
         console.log('Removing note');
     }
-})
+}).parse();
