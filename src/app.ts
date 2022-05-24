@@ -1,8 +1,37 @@
-import chalk from 'chalk'
+import yargs from 'yargs'
 
-console.log(); // Buffer
+// Add command
+yargs.command({
+    command: 'add',
+    describe: 'Add new note',
+    handler: function () {
+        console.log('Adding note');
+    }
+})
 
-const success = chalk.green;
-console.log(success('Success!'));
+// Remove command
+yargs.command({
+    command: 'remove',
+    describe: 'Remove a note',
+    handler: function () {
+        console.log('Removing note');
+    }
+})
 
-console.log(); // Buffer
+// List command
+yargs.command({
+    command: 'list',
+    describe: 'List notes',
+    handler: function () {
+        console.log('Listing notes');
+    }
+})
+
+// Read command
+yargs.command({
+    command: 'read',
+    describe: 'Read a note',
+    handler: function () {
+        console.log('Reading note');
+    }
+})
