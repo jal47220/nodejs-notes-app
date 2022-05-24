@@ -1,20 +1,17 @@
-import yargs from 'yargs'
+import yargs, { demandOption } from 'yargs'
 
 // Add command
 yargs.command({
     command: 'add',
     describe: 'Add new note',
-    handler: function () {
-        console.log('Adding note');
-    }
-})
-
-// Remove command
-yargs.command({
-    command: 'remove',
-    describe: 'Remove a note',
-    handler: function () {
-        console.log('Removing note');
+    builder: {
+        title: { 
+            describe: 'Note title',
+            demandOption: true
+         }
+    },
+    handler: function (argv) {
+        console.log('Adding note', argv);
     }
 })
 
@@ -33,5 +30,14 @@ yargs.command({
     describe: 'Read a note',
     handler: function () {
         console.log('Reading note');
+    }
+})
+
+// Remove command
+yargs.command({
+    command: 'remove',
+    describe: 'Remove a note',
+    handler: function () {
+        console.log('Removing note');
     }
 })
