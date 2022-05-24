@@ -6,12 +6,6 @@
     "dev": "ts-node-dev --respawn src/app.ts",
     "start": "node dist/index.js",
     "build": "tsc -p tsconfig.json --pretty",
-
-    "add": "node dist/app.js add",
-    "list": "node dist/app.js list",
-    "read": "node dist/app.js read",
-    "remove": "node dist/app.js remove",
-    
     "inst_node": "npm i @types/node --save-dev; npm i node",
     "inst_tsdev": "npm i ts-node-dev --save-dev",
     "inst_yargs": "npm i @types/yargs --save-dev; npm i yargs",
