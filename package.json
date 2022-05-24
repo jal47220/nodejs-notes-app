@@ -6,14 +6,22 @@
     "dev": "ts-node-dev --respawn src/app.ts",
     "start": "node dist/index.js",
     "build": "tsc -p tsconfig.json --pretty",
+
+    "add": "node dist/app.js add",
+    "list": "node dist/app.js list",
+    "read": "node dist/app.js read",
+    "remove": "node dist/app.js remove",
+    
     "inst_node": "npm i @types/node --save-dev; npm i node",
+    "inst_tsdev": "npm i ts-node-dev --save-dev",
     "inst_yargs": "npm i @types/yargs --save-dev; npm i yargs",
-    "install": "npm run inst_node; npm run inst_yargs"
+    "install": "npm run inst_node; npm run inst_tsdev; npm run inst_yargs"
   },
   "authors": "Joshua Loftin",
   "devDependencies": {
     "@types/node": "^17.0.35",
-    "@types/yargs": "^17.0.10"
+    "@types/yargs": "^17.0.10",
+    "ts-node-dev": "^1.1.8"
   },
   "dependencies": {
     "node": "^17.7.2",
