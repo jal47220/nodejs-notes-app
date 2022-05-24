@@ -24,7 +24,14 @@ yargs.command({
 }).command({
     command: 'read',
     describe: 'Read a note',
-    handler: () => console.log('Reading note')
+    builder: {
+        title: {
+            describe: 'Note title',
+            demandOption: true,
+            type: 'string'
+        }
+    },
+    handler: (argv: any) => notes.readNote(argv.title)
 }).command({
     command: 'remove',
     describe: 'Remove note by title',

@@ -13,9 +13,9 @@ const underlineRed = chalk.underline.red;
 export function addNote (title: string, body: string) {
     const notes = loadNotes();
 
-    const duplicates = notes.filter((note: Note) => note.title === title);
+    const duplicate = notes.find((note: Note) => note.title === title);
     console.log(); // Buffer
-    if (duplicates.length === 0) {
+    if (!duplicate) {
         notes.push({
             title: title,
             body: body
@@ -45,6 +45,17 @@ export function listNotes () {
     console.log(); // Buffer
     console.log(underlineRed('Your Notes:'));
     notes.forEach((note: Note) => console.log(note.title));
+}
+
+export function readNote (title: string) {
+    const notes = loadNotes();
+
+    const foundNote = notes.find((note: Note) => note.title === title);
+    console.log(); // Buffer
+    if (foundNote) {
+        console.log(underlineRed(foundNote.title));
+        console.log(foundNote.body);
+    } else { console.log(redBg('Note titled "' + title + '" not found.')); }
 }
 
 const loadNotes = () => {
