@@ -1,5 +1,5 @@
-import * as yargs from 'yargs'
-import * as notes from './notes'
+import yargs from 'yargs';
+import * as notes from './notes';
 
 yargs.command({
     command: 'add',
@@ -16,9 +16,7 @@ yargs.command({
             type: 'string'
         }
     },
-    handler: function (argv: any) {
-        notes.addNote(argv.title, argv.body)
-    }
+    handler: function (argv: any) { notes.addNote(argv.title, argv.body) }
 }).command({
     command: 'list',
     describe: 'List notes',
@@ -33,8 +31,13 @@ yargs.command({
     }
 }).command({
     command: 'remove',
-    describe: 'Remove a note',
-    handler: function () {
-        console.log('Removing note');
-    }
+    describe: 'Remove note by title',
+    builder: {
+        title: {
+            describe: 'Note title',
+            demandOption: true,
+            type: 'string'
+        }
+    },
+    handler: function (argv: any) { notes.removeNote(argv.title); }
 }).parse();
