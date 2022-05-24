@@ -20,7 +20,7 @@ yargs.command({
 }).command({
     command: 'list',
     describe: 'List notes',
-    handler: () => console.log('Listing notes')
+    handler: () => notes.listNotes()
 }).command({
     command: 'read',
     describe: 'Read a note',
