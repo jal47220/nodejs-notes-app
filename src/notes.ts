@@ -12,9 +12,7 @@ const redBg = chalk.bgRed;
 export function addNote (title: string, body: string) {
     const notes = loadNotes();
 
-    const duplicates = notes.filter(function (note: Note) {
-        return note.title === title;
-    });
+    const duplicates = notes.filter((note: Note) => note.title === title);
     if (duplicates.length === 0) {
         notes.push({
             title: title,
@@ -28,7 +26,7 @@ export function addNote (title: string, body: string) {
 export function removeNote (title: string) {
     const notes = loadNotes();
 
-    const removed = notes.filter(function (note: Note) {
+    const removed = notes.filter((note: Note) => {
         if (note.title === title) { notes.pop(title); }
         return note.title === title;
     });
@@ -38,7 +36,7 @@ export function removeNote (title: string) {
     } else { console.log(redBg('Unable to remove note titled "' + title + '"; note does not exist')); }
 }
 
-function loadNotes () {
+const loadNotes = () => {
     try {
         const dataBuffer = fs.readFileSync('notes.json');
         const dataJSON = dataBuffer.toString();
@@ -46,7 +44,7 @@ function loadNotes () {
     } catch (e) { return []; }
 }
 
-function saveNotes (note: Note) {
+const saveNotes = (note: Note) => {
     const dataJSON = JSON.stringify(note);
     fs.writeFileSync('notes.json', dataJSON);
 }
