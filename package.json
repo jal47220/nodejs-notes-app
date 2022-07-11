@@ -4,8 +4,6 @@
   "main": "index.js",
   "scripts": {
     "dev": "ts-node-dev --respawn src/app.ts",
-    "start": "node dist/index.js",
-    "build": "tsc -p tsconfig.json --pretty",
     "inst_node": "npm i @types/node --save-dev; npm i node",
     "inst_tsdev": "npm i ts-node-dev --save-dev",
     "inst_yargs": "npm i @types/yargs --save-dev; npm i yargs",
